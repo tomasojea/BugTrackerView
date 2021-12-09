@@ -1,4 +1,5 @@
 import { Drawer } from '@material-ui/core'
+import {Link} from "react-router-dom"
 import { makeStyles } from '@material-ui/core'
 import { List, ListItem, ListItemIcon, ListItemButton, ListItemText} from '@mui/material';
 import AccountBalanceWalletTwoToneIcon from '@mui/icons-material/AccountBalanceWalletTwoTone';
@@ -47,8 +48,11 @@ const useStyles = makeStyles({
                     <ListItemIcon>
                         {item.icon}
                     </ListItemIcon>
-                    <ListItemText primary={item.text}/>
+                    <ListItemText>
+                        <Link to={item.text}>{item.text}</Link>
+                    </ListItemText>
                 </ListItem>
+                
                 ))
             }
             </List>

@@ -42,6 +42,7 @@ function BarGraph(){
             text: 'Total issues by employee'
           },
         },
+        
         responsive: true,
         scales: {
             y: {

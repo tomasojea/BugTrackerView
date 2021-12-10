@@ -1,4 +1,5 @@
 import { Drawer } from '@material-ui/core'
+import Paper from '@material-ui/core/Paper';
 import {Link} from "react-router-dom"
 import { makeStyles } from '@material-ui/core'
 import { List, ListItem, ListItemIcon, ListItemButton, ListItemText} from '@mui/material';
@@ -30,6 +31,10 @@ const useStyles = makeStyles({
         {
             text:"Issues",
             icon: <AssignmentLateTwoToneIcon />,
+        },
+        {
+            text:"Charts",
+            icon: <AssignmentLateTwoToneIcon />,
         }
     ];
     
@@ -49,7 +54,7 @@ const useStyles = makeStyles({
                         {item.icon}
                     </ListItemIcon>
                     <ListItemText>
-                        <Link to={item.text}>{item.text}</Link>
+                        <Link  to={item.text} style={{ textDecoration: 'none' }}>{item.text}</Link>
                     </ListItemText>
                 </ListItem>
                 

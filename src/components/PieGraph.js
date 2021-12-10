@@ -46,12 +46,15 @@ function PieGraph(){
      
     return(     
         <>
-           <Pie  data={dataGraph} options={{responsive: true,maintainAspectRatio: false,plugins: {
-                title: {
-                  display: true,
-                  text: 'Total issues by priority'
-                }
-        }}}/>
+           <Pie  data={dataGraph} 
+                 options={{responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                        display: true,
+                                         text: 'Total issues by priority'
+                                    }
+                         }}}/>
 
         </>
         

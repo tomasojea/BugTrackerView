@@ -13,15 +13,19 @@ function App() {
         <Router>    
             <div className="App" style={{display: "flex"}}>
                 <SideBar/>
+                
                 <Switch> 
                     <Route exact path="/">
-                       
+                        <GraphGrid/>
                     </Route>
                     <Route  path="/issues">
                         <TableData/>
                     </Route>
                      <Route  path="/projects">
                         <ProjectTable/>
+                    </Route>
+                     <Route  path="/charts">
+                        <GraphGrid/>
                     </Route>
                 </Switch> 
 

@@ -46,24 +46,23 @@ function TableData(){
                             <TableCell>Resolution Summary</TableCell>
                             <TableCell>Created on</TableCell>
                             <TableCell>Created By</TableCell>
-
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         
                             {data.map((item) => (
                                     <TableRow>
-                                    <TableCell>{item.issue_summary}</TableCell>
-                                    <TableCell>{item.issue_description}</TableCell>
-                                    <TableCell>{item.identified_date}</TableCell>
-                                    <TableCell>{item.status}</TableCell>
-                                    <TableCell>{item.priority}</TableCell>
-                                    <TableCell>{item.target_resolution_date}</TableCell>
-                                    <TableCell>{item.progress}</TableCell>
-                                    <TableCell>{item.actual_resolution_date}</TableCell>
-                                    <TableCell>{item.resolution_summary}</TableCell>
-                                    <TableCell>{item.created_on}</TableCell>
-                                    <TableCell>{item.created_by}</TableCell>
+                                        <TableCell>{item.issue_summary}</TableCell>
+                                        <TableCell>{item.issue_description}</TableCell>
+                                        <TableCell>{item.identified_date}</TableCell>
+                                        <TableCell>{item.status}</TableCell>
+                                        <TableCell>{item.priority}</TableCell>
+                                        <TableCell>{item.target_resolution_date}</TableCell>
+                                        <TableCell>{item.progress}</TableCell>
+                                        <TableCell>{item.actual_resolution_date}</TableCell>
+                                        <TableCell>{item.resolution_summary}</TableCell>
+                                        <TableCell>{item.created_on}</TableCell>
+                                        <TableCell>{item.created_by}</TableCell>
                                     </TableRow>
                                             
                                     ))

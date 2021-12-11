@@ -13,7 +13,6 @@ function App() {
         <Router>    
             <div className="App" style={{display: "flex"}}>
                 <SideBar/>
-                
                 <Switch> 
                     <Route exact path="/">
                         <GraphGrid/>
@@ -21,15 +20,14 @@ function App() {
                     <Route  path="/issues">
                         <TableData/>
                     </Route>
-                     <Route  path="/projects">
+                     <Route path="/projects">
                         <ProjectTable/>
                     </Route>
-                     <Route  path="/charts">
+                     <Route path="/charts">
                         <GraphGrid/>
                     </Route>
                 </Switch> 
-
-                
+                          
 
             </div>
         </Router> 
@@ -39,3 +37,5 @@ function App() {
 
 
 export default App;
+    
+    

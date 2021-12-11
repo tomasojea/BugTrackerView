@@ -5,23 +5,21 @@ function LineGraph(){
     
      const [data, setData] = useState([])
     
-    
-   
+     
     async function apiGet() {
         const response = await fetch('http://localhost:8081/issues/search/dataLineGraph');
         const data1 = await response.json();
         setData(data1._embedded.graphLines);
-  }
+    }
       
   
-      useEffect(() => {
+    useEffect(() => {
         console.log("executed only once!");
          apiGet();
          console.log("data only once!");
 
          console.log(data);
-
-  }, [""]);
+    }, [""]);
   
 
     const dataLine = {

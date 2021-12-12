@@ -4,8 +4,8 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useLocation } from "react-router-dom"
-import {Link, Route} from "react-router-dom"
+
+import {Link, Route, useLocation} from "react-router-dom"
 import { useEffect, useState } from "react";
 
 function Issue ( ){

@@ -65,9 +65,9 @@ function ProjectTable(){
                     </TableBody>
                 </Table>  
              </TableContainer>
-             <Switch>
-             <Route  path="/projects/issues"  component={Issue}/>
-             </Switch>
+            
+                
+             
             </>
     )
 }

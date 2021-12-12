@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     const classes = useStyles();
     const menuItems = [
         {
-            text:"Projects",
+            text:"projects",
             icon: <AccountBalanceWalletTwoToneIcon />,
             
         },
@@ -54,7 +54,7 @@ const useStyles = makeStyles({
                         {item.icon}
                     </ListItemIcon>
                     <ListItemText>
-                        <Link  to={item.text} style={{ textDecoration: 'none' }}>{item.text}</Link>
+                        <Link  to={"/" + item.text} style={{ textDecoration: 'none' }}>{item.text}</Link>
                     </ListItemText>
                 </ListItem>
                 

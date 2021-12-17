@@ -3,6 +3,8 @@ import Paper from '@material-ui/core/Paper';
 import {Link} from "react-router-dom"
 import { makeStyles } from '@material-ui/core'
 import { List, ListItem, ListItemIcon, ListItemButton, ListItemText} from '@mui/material';
+import { Button } from '@mui/material';
+
 import AccountBalanceWalletTwoToneIcon from '@mui/icons-material/AccountBalanceWalletTwoTone';
 import AssignmentLateTwoToneIcon from '@mui/icons-material/AssignmentLateTwoTone';
 
@@ -54,7 +56,7 @@ const useStyles = makeStyles({
                         {item.icon}
                     </ListItemIcon>
                     <ListItemText>
-                        <Link  to={"/" + item.text} style={{ textDecoration: 'none' }}>{item.text}</Link>
+                        <Link  to={"/" + item.text} style={{ textDecoration: 'none' }}><Button>{item.text}</Button></Link>
                     </ListItemText>
                 </ListItem>
                 

@@ -8,7 +8,7 @@ import {useState} from "react"
 import Button from "@material-ui/core/Button";
 
 
-function Form(){
+function FormProject(){
    
     const [data, setData] = useState({
         issue_summary:"",
@@ -189,4 +189,5 @@ function Form(){
     )
 }
 
-export default Form
+export default FormProject;
+   

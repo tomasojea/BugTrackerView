@@ -11,26 +11,24 @@ import Button from "@material-ui/core/Button";
 function FormProject(){
    
     const [data, setData] = useState({
-        issue_summary:"",
-        issue_description:"",
-        identified_by_person_id:"",
-        identified_date:"",
-        related_project:"",
-        assigned_to:"",
-        status:"Open",
-        priority:"Low",
-        target_resolution_date:"",
+        assigned_project:"",
+        created_by:"",
         created_on:"",
-        created_by:""
+        modified_by:"",
+        modified_on:"",
+        person_email:"",
+        person_name:"Open",
+        person_role:"Low",
+        username:"",
     })
     
     const handleSubmit = (e) =>{
         e.preventDefault()
-        fetch('http://localhost:8081/issues',{
+        fetch('http://localhost:8081/peoples',{
             method:'POST',
             headers:{"Content-Type":"application/hal+json"},
             body: JSON.stringify(data)
-        }).then("New issue added")
+        }).then("New person added")
         console.log(data.related_project)
     }
     const handleInputChange = (e) => {
@@ -54,52 +52,52 @@ function FormProject(){
          
             <FormControl sx={{display:'flex',flexDirection: 'row',flexWrap: 'wrap', }}>
                 <TextField
-                  name="identified_by_person_id"
-                  value={data.identified_by_person_id}
+                  name="assigned_project"
+                  value={data.assigned_project}
                   onChange={handleInputChange}
                   required
                   id="outlined-required"
                   type="number"
-                  label="Identified by"
-                  defaultValue="Identified by (id number)"
+                  label="Assigned Project"
+                  defaultValue="Assigned Project"
                 />
                 <TextField
-                  value={data.identified_date}
+                  value={data.created_on}
                   onChange={handleInputChange}
-                  name="identified_date"
+                  name="created_on"
                   required
                   id="outlined-required"
-                  label="Identified date"
+                  label="Created On"
                   type="date"
-                  defaultValue="Identified date"
+                  defaultValue="Created On"
                   InputLabelProps={{ shrink: true }}
                 />
             </FormControl>
             <FormControl sx={{display:'flex',flexDirection: 'row',flexWrap: 'wrap',}}>
                 <TextField
-                  value={data.related_project}
+                  value={data.modified_by}
                   onChange={handleInputChange}
-                  name="related_project"
+                  name="modified_by"
                   required
                   id="outlined-required"
-                  label="Related project"
-                  type="number"
-                  defaultValue="Related project"
+                  label="Modified By"
+                  type="date"
+                  defaultValue="modified_by"
                 />
                 <TextField
-                  value={data.assigned_to}
+                  value={data.modified_on}
                   onChange={handleInputChange}
-                  name="assigned_to"
+                  name="modified_on"
                   required
                   id="outlined-required"
-                  label="Assigned to"
-                  type="number"
-                  defaultValue="Assigned to"
+                  label="Modified On"
+                  type="date"
+                  defaultValue="Modified On"
                 />
                 <TextField
-                  value={data.target_resolution_date}
+                  value={data.person_email}
                   onChange={handleInputChange}
-                  name="target_resolution_date"
+                  name="person_email"
                   required
                   id="outlined-required"
                   label="Target Date"
@@ -141,46 +139,55 @@ function FormProject(){
                   InputLabelProps={{ shrink: true }}
                 />
                 <TextField
-                  value={data.resolution_summary}
+                  value={data.person_email}
                   onChange={handleInputChange}
-                  name="resolution_summary"
+                  name="person_email"
                   required
                   id="outlined-multiline-static"
-                  label="Resolution Summary"
+                  label="Email"
                   multiline
                   rows={4}
-                  defaultValue="Resolution Summary"
+                  defaultValue="Email"
                 />
+                <TextField
+                  value={data.person_name}
+                  onChange={handleInputChange}
+                  name="person_name"
+                  required
+                  id="outlined-multiline-static"
+                  label="Name"
+                  multiline
+                  rows={4}
+                  defaultValue="Name"
+                />
+                <TextField
+                  value={data.username}
+                  onChange={handleInputChange}
+                  name="username"
+                  required
+                  id="outlined-multiline-static"
+                  label="Username"
+                  multiline
+                  rows={4}
+                  defaultValue="Username"
+                />
+                
             </FormControl>
             <FormControl style={{ alignItems: 'center', flexDirection: 'row', margin:10, maxWidth:60, }}>
                 <InputLabel>Status</InputLabel>
                 <Select
-                  name="status"
-                  value={data.status}
+                  name="person_role"
+                  value={data.person_role}
                   onChange={handleInputChange}
-                  label="Status"
+                  label="Role"
                   style={{margin:7,}}
                 >
-                  <MenuItem key="Open" value="Open">High</MenuItem>
-                  <MenuItem key="Closed" value="Closed">Medium</MenuItem>
-                  <MenuItem key="InProgress" value="InProgress">Low</MenuItem>
+                  <MenuItem key="Developer" value="Developer">Developer</MenuItem>
+                  <MenuItem key="Tester" value="Tester">Tester</MenuItem>
+                  <MenuItem key="Team Leader" value="Team Leader">Team Leader</MenuItem>
                 </Select>
             </FormControl>
-            <FormControl style={{ alignItems: 'center', flexDirection: 'row', margin:10,maxWidth:60,justifyContent: 'flex-start', }}>
-                <InputLabel>Priority</InputLabel>
-                <Select
-                  value={data.priority}
-                  onChange={handleInputChange}
-                  name="priority"
-                  label="Priority"
-                  style={{marginTop:7}}
-                >
-                  <MenuItem key="High" value="High">Open</MenuItem>
-                  <MenuItem key="Medium" value="Medium">Closed</MenuItem>
-                  <MenuItem key="Low" value="Low">In progress</MenuItem>
-                </Select>
-                
-            </FormControl>
+          
             <Button variant="contained" color="primary" type="submit" style={{alignSelf:'center'}}>
                 Submit
             </Button>

@@ -1,6 +1,6 @@
 import SideBar from "../components/SideBar"
 import Issue from "../components/Issue.js"
-import Form from "../components/Form.js"
+import FormProject from "../components/FormProject.js"
 import GraphGrid from "../components/GraphGrid"
 import TableData from "../components/TableData.js"
 import ProjectTable from "../components/ProjectTable.js"
@@ -26,7 +26,7 @@ function App() {
                     
                     <Route  path="/charts" component={GraphGrid}/>
                             
-                     <Route  path="/form" component={Form}/>
+                    <Route  path="/form" component={FormProject}/>
                 </Switch> 
             </div>
         </Router> 

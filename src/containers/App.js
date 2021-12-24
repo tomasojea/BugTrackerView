@@ -1,9 +1,10 @@
 import SideBar from "../components/SideBar"
 import Issue from "../components/Issue.js"
-import FormProject from "../components/FormProject.js"
+import Form from "../components/Form.js"
 import GraphGrid from "../components/GraphGrid"
 import TableData from "../components/TableData.js"
 import ProjectTable from "../components/ProjectTable.js"
+import FormPeople from "../components/FormPeople.js"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 
 
@@ -26,7 +27,7 @@ function App() {
                     
                     <Route  path="/charts" component={GraphGrid}/>
                             
-                    <Route  path="/form" component={FormProject}/>
+                    <Route  path="/form" component={FormPeople}/>
                 </Switch> 
             </div>
         </Router> 

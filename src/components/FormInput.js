@@ -1,31 +1,42 @@
-import { useState } from 'react';
+
+import  {FormContext}  from '../components/FormReusable';
 import { useContext } from 'react';
-import { FormContext } from './FormWrapper';
+import {useState} from "react"
+import TextField from '@mui/material/TextField';
 
-function FormInput(props) {
+function FormInput(){
 
-const {
-    label, 
-    type = 'text', 
-    name, 
-    value, 
-    onChange
-  } = props;
-  const formContext = useContext(FormContext);
-  const { form, handleFormChange } = formContext;
+ const [data, setData] = useContext(FormContext);
+ 
+ const addItem = () => {
+     
+     
+     console.log(data)
+ }
 
-
-  return (
-    <div className="FormInput">
-      <label>{label}</label>
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-      />
-    </div>
-  )
+return(
+      
+      <>
+     {data.map((item) => (
+        <>
+           <TextField
+                  name={data.label}
+                  value={data.value}
+                  required
+                  id="outlined-required"
+                  type={data.type}
+                  label={data.label}
+                  defaultValue={data.defaultValue}
+                />
+        </>
+       
+      ))}
+    </>
+    
+)
+      
+        
 }
 
-export default FormInput;
+export default FormInput
+

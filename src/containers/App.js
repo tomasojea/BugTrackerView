@@ -4,7 +4,7 @@ import Form from "../components/Form.js"
 import GraphGrid from "../components/GraphGrid"
 import TableData from "../components/TableData.js"
 import ProjectTable from "../components/ProjectTable.js"
-import FormPeople from "../components/FormPeople.js"
+import FormPeople from "../components/FormPeople"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 
 

@@ -2,26 +2,51 @@ import FormReusable from "../components/FormReusable.js"
 import TextField from '@mui/material/TextField';
 import React from 'react';
 import FormInput from  "../components/FormInput"
+import FormSelect from "../components/FormSelect"
 import Box from '@mui/material/Box';
 
 
 function FormPeople(){
     
-    const Inputparams = [{name: "tomas", 
-                          label:"nose", 
-                          defaultValue:"tu vieja", 
+    const Inputparams = [{name: "assigned_project", 
+                          label:"Assigned Project", 
+                          defaultValue:"", 
                           type:"text",
-                          value:"esta"
-                        },{name: "tomas", 
-                          label:"nose", 
-                          defaultValue:"tu vieja", 
+                          value:"Insert Project name"
+                        },{name: "created_on", 
+                          label:"Created On", 
+                          defaultValue:"", 
+                          type:"date",
+                          value:""
+                        },{name: "modified_on", 
+                          label:"Modified On", 
+                          defaultValue:"", 
+                          type:"date",
+                          value:""
+                        },{name: "person_email", 
+                          label:"E-mail", 
+                          defaultValue:"", 
                           type:"text",
-                          value:"esta"
+                          value:""
+                        },{name: "person_name", 
+                          label:"Name", 
+                          defaultValue:"", 
+                          type:"text",
+                          value:""
+                        },{name: "person_name", 
+                          label:"Name", 
+                          defaultValue:"", 
+                          type:"text",
+                          value:""
                         }]
+                    
+    const Selectparams = [{name:"Status",value:"Open",label:"Status", menuItem:["Open", "Close", "InProgress"]}]
+                     
+
       
          
     return(
-            <FormReusable alto={Inputparams}>
+            <FormReusable formdatainput={Inputparams} formdataselect={Selectparams}>
                 <Box   
                     component="form"
                     sx={{
@@ -32,7 +57,8 @@ function FormPeople(){
                     }}
                     autoComplete="off"
                 >           
-                    <FormInput/>       
+                    <FormInput/> 
+                    <FormSelect/>
                 </Box>                         
             </FormReusable>
         )

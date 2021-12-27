@@ -1,5 +1,5 @@
 import FormControl from '@mui/material/FormControl';
-import  {FormContext}  from '../components/FormReusable';
+import  {FormInputCont}  from '../components/FormReusable';
 import { useContext } from 'react';
 import {useState} from "react"
 import TextField from '@mui/material/TextField';
@@ -7,13 +7,13 @@ import TextField from '@mui/material/TextField';
 
 function FormInput(){
 
- const [data, setData] = useContext(FormContext);
+ const [input, setInput] = useContext(FormInputCont);
  
 
 return(
       
       <>
-        {data.map((item) => (
+        {input.map((item) => (
 
            <>
             {console.log(item.name)}
@@ -28,6 +28,7 @@ return(
                        label={item.label}
                        defaultValue={item.defaultValue}
                        id="outlined-required"
+                       InputLabelProps={{ shrink: true }}
                     />
                 </FormControl>
            

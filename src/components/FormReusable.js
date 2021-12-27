@@ -3,11 +3,13 @@ import {useState} from "react"
 import React from 'react';
 import createContext from "react"
 
-export const FormContext = React.createContext();
+export const FormInputCont = React.createContext();
+export const FormInputSelectCont = React.createContext();
 
 function FormReusable(props){
     
-    const [data, setData] = useState(props.alto)
+    const [input, setInput] = useState(props.formdatainput)
+    const [select, setSelect] = useState(props.formdataselect)
     
    
   
@@ -30,10 +32,11 @@ function FormReusable(props){
         
     return(
             
-        <FormContext.Provider value={[data, setData, props.alto]}>
-            {props.children}
-            
-        </FormContext.Provider>
+        <FormInputCont.Provider value={[input, setInput, props.formdatainput]}>
+            <FormInputSelectCont.Provider value={[select, setSelect, props.formdataselect]}> 
+                {props.children}
+            </FormInputSelectCont.Provider>
+        </FormInputCont.Provider>
     )
 }
 

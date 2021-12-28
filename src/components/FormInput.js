@@ -28,7 +28,9 @@ return(
                        label={item.label}
                        defaultValue={item.defaultValue}
                        id="outlined-required"
+                       inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
                        InputLabelProps={{ shrink: true }}
+                       
                     />
                 </FormControl>
            

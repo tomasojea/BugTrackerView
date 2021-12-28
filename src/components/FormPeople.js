@@ -12,7 +12,7 @@ function FormPeople(){
                           label:"Assigned Project", 
                           defaultValue:"", 
                           type:"text",
-                          value:"Insert Project name"
+                          value:"Insert project name"
                         },{name: "created_on", 
                           label:"Created On", 
                           defaultValue:"", 
@@ -27,20 +27,20 @@ function FormPeople(){
                           label:"E-mail", 
                           defaultValue:"", 
                           type:"text",
-                          value:""
+                          value:"Insert email"
                         },{name: "person_name", 
                           label:"Name", 
                           defaultValue:"", 
                           type:"text",
-                          value:""
-                        },{name: "person_name", 
-                          label:"Name", 
+                          value:"Insert fullname"
+                        },{name: "username", 
+                          label:"Username", 
                           defaultValue:"", 
                           type:"text",
-                          value:""
+                          value:"Insert username"
                         }]
                     
-    const Selectparams = [{name:"Status",value:"Open",label:"Status", menuItem:["Open", "Close", "InProgress"]}]
+    const Selectparams = [{name:"Role", value:"Open",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
                      
 
       

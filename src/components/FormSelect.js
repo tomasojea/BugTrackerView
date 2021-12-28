@@ -12,7 +12,7 @@ return(
         <>
             
                 
-                    <FormControl sx={{display:'flex',flexDirection: 'row',flexWrap: 'wrap',}}>
+                    <FormControl sx={{display:'flex',flexDirection: 'row',flexWrap: 'wrap', marginLeft:1 }}>
                     {select.map((item)=>(
                         <>
                         <InputLabel>{item.label}</InputLabel>
@@ -20,13 +20,14 @@ return(
                               name={item.name}
                               value={item.status}
                               label={item.label}
-                              style={{margin:7,}}
+                              sx={{ minWidth: 130 }}
+                              inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
                             >
                             
                               
-                              <MenuItem key={item.menuItem} value={item.menuItem}>High</MenuItem>
-                              <MenuItem key={item.menuItem} value={item.menuItem}>Medium</MenuItem>
-                              <MenuItem key={item.menuItem} value={item.menuItem}>Low</MenuItem>
+                              <MenuItem key={item.menuItem} value={item.menuItem}>Open</MenuItem>
+                              <MenuItem key={item.menuItem} value={item.menuItem}>Close</MenuItem>
+                              <MenuItem key={item.menuItem} value={item.menuItem}>In Progress</MenuItem>
                               
                            
                             </Select>

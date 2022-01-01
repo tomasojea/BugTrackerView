@@ -10,6 +10,7 @@ function FormReusable(props){
     
     const [input, setInput] = useState(props.formdatainput)
     const [select, setSelect] = useState(props.formdataselect)
+    const [data, setData] = useState({})
     
    
   
@@ -20,19 +21,20 @@ function FormReusable(props){
             headers:{"Content-Type":"application/hal+json"},
             body: JSON.stringify(data)
         })
-      
-    }
+      }
+     
+   
     const handleFormChange = (e) => {
-        e.preventDefault();
+
         const { name, value } = e.target;
         setData({...data,[name]: value,});
         console.log(data)
     };
-    */
-        
+   
+       */   
     return(
             
-        <FormInputCont.Provider value={[input, setInput, props.formdatainput]}>
+        <FormInputCont.Provider value={[input, setInput,data,setData, props.formdatainput, props.data]}>
             <FormInputSelectCont.Provider value={[select, setSelect, props.formdataselect]}> 
                 {props.children}
             </FormInputSelectCont.Provider>

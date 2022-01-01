@@ -15,7 +15,7 @@ return(
                     <FormControl sx={{display:'flex',flexDirection: 'row',flexWrap: 'wrap', marginLeft:1 }}>
                     {select.map((item)=>(
                         <>
-                        <InputLabel>{item.label}</InputLabel>
+                            <InputLabel>{item.label}</InputLabel>
                             <Select
                               name={item.name}
                               value={item.status}
@@ -25,9 +25,9 @@ return(
                             >
                             
                               
-                              <MenuItem key={item.menuItem} value={item.menuItem}>Open</MenuItem>
-                              <MenuItem key={item.menuItem} value={item.menuItem}>Close</MenuItem>
-                              <MenuItem key={item.menuItem} value={item.menuItem}>In Progress</MenuItem>
+                              <MenuItem key={item.menuItem[0]} value={item.menuItem[0]}>{item.menuItem[0]}</MenuItem>
+                              <MenuItem key={item.menuItem[1]} value={item.menuItem[1]}>{item.menuItem[1]}</MenuItem>
+                              <MenuItem key={item.menuItem[2]} value={item.menuItem[2]}>{item.menuItem[2]}</MenuItem>
                               
                            
                             </Select>

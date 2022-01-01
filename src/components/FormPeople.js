@@ -7,6 +7,8 @@ import Box from '@mui/material/Box';
 
 
 function FormPeople(){
+   
+   
     
     const Inputparams = [{name: "assigned_project", 
                           label:"Assigned Project", 
@@ -38,15 +40,20 @@ function FormPeople(){
                           defaultValue:"", 
                           type:"text",
                           value:"Insert username"
-                        }]
+                          }]
                     
-    const Selectparams = [{name:"Role", value:"Open",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
+    const Selectparams = [{name:"Role", value:"Developer",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
                      
 
       
          
     return(
-            <FormReusable formdatainput={Inputparams} formdataselect={Selectparams}>
+            <FormReusable
+                formdatainput={Inputparams} 
+                formdataselect={Selectparams} 
+                
+                
+            >
                 <Box   
                     component="form"
                     sx={{

@@ -3,12 +3,25 @@ import  {FormInputCont}  from '../components/FormReusable';
 import { useContext } from 'react';
 import {useState} from "react"
 import TextField from '@mui/material/TextField';
-
+import {useEffect} from "react"
 
 function FormInput(){
 
- const [input, setInput] = useContext(FormInputCont);
- 
+ const [input, setInput, data, setData] = useContext(FormInputCont);
+    
+ const handlermChange = (e) => {
+        
+    const { name, value } = e.target;
+    setData({...data,[name]: value});
+         
+    
+    };
+    
+    useEffect(() => {
+        console.log(data)
+
+    }, [data]);
+
 
 return(
       
@@ -16,12 +29,11 @@ return(
         {input.map((item) => (
 
            <>
-            {console.log(item.name)}
-           
+                       
                 <FormControl sx={{display:'flex',flexDirection: 'row',flexWrap: 'wrap',}}>
                     <TextField 
-                       name={item.label}
-                       value={item.value}
+                       name={item.name}
+                       value={data.value}
                        required
                        id="outlined-required"
                        type={item.type}
@@ -30,7 +42,7 @@ return(
                        id="outlined-required"
                        inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
                        InputLabelProps={{ shrink: true }}
-                       
+                       onChange={handlermChange}
                     />
                 </FormControl>
            

@@ -4,6 +4,7 @@ import React from 'react';
 import FormInput from  "../components/FormInput"
 import FormSelect from "../components/FormSelect"
 import Box from '@mui/material/Box';
+import {useEffect} from "react"
 
 
 function FormPeople(){
@@ -44,8 +45,24 @@ function FormPeople(){
                     
     const Selectparams = [{name:"Role", value:"Developer",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
                      
+    const handlePOST = () =>{
+        
+        fetch(url,{
+            method:'POST',
+            headers:{"Content-Type":"application/hal+json"},
+            body: JSON.stringify(data)
+        })
+      }
 
-      
+     useEffect(() => {
+        handlePOST()
+
+    }, []);
+    
+    const handleSubmit = e => {
+        e.preventDefault()
+        handlePOST()
+    }
          
     return(
             <FormReusable
@@ -63,6 +80,7 @@ function FormPeople(){
                         flexDirection: 'column',
                     }}
                     autoComplete="off"
+                    onSubmit={handleSubmit}
                 >           
                     <FormInput/> 
                     <FormSelect/>

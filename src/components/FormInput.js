@@ -11,11 +11,11 @@ function FormInput(){
     
  const handlermChange = (e) => {
         
-    const { name, value } = e.target;
-    setData({...data,[name]: value});
+     const { name, value } = e.target;
+     setData({...data,[name]: value});
          
-    
     };
+    
     
     useEffect(() => {
         console.log(data)

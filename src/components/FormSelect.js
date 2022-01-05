@@ -3,11 +3,22 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import  {FormInputSelectCont}  from '../components/FormReusable';
+import  {FormInputCont}  from '../components/FormReusable';
+
 import { useContext } from 'react';
 import {useState} from "react"
 
 function FormSelect(){
     const [select, setSelect] = useContext(FormInputSelectCont);
+    const [input, setInput, data, setData] = useContext(FormInputCont);
+    const handlermChange = (e) => {
+
+        const { name, value } = e.target;
+        setData({...data,[name]: value});
+        
+
+    };
+
 return(
         <>
             
@@ -22,6 +33,7 @@ return(
                               label={item.label}
                               sx={{ minWidth: 130 }}
                               inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
+                              onChange={handlermChange}
                             >
                             
                               

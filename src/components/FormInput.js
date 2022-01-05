@@ -18,7 +18,9 @@ function FormInput({setSend}){
     };
         
     useEffect(() => {
+        console.log("////From FormInput////")
         console.log(data)
+        console.log("////From FormInput////")
         setSend(data)
     }, [data]);
 

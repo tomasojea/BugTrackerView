@@ -48,9 +48,9 @@ function FormPeople(){
     const selectParams = [{name:"Role", value:"Developer",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
     
     useEffect(() => {
-        console.log("////")
+       console.log("////From FormPeople////")
         console.log(send)
-        console.log("////")
+        console.log("////From FormPeople////")
     }, [send]);
                
  /* const handlePOST = () =>{

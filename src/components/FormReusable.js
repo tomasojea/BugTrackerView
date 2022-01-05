@@ -34,7 +34,7 @@ function FormReusable(props){
        */   
     return(
             
-        <FormInputCont.Provider value={[input, setInput,data,setData, props.formdatainput, props.data]}>
+        <FormInputCont.Provider value={[input, setInput, data, setData, props.formdatainput, props.data]}>
             <FormInputSelectCont.Provider value={[select, setSelect, props.formdataselect]}> 
                 {props.children}
             </FormInputSelectCont.Provider>

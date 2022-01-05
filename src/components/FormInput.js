@@ -5,21 +5,21 @@ import {useState} from "react"
 import TextField from '@mui/material/TextField';
 import {useEffect} from "react"
 
-function FormInput(){
+function FormInput({setSend}){
 
- const [input, setInput, data, setData] = useContext(FormInputCont);
+    const [input, setInput, data, setData] = useContext(FormInputCont);
     
- const handlermChange = (e) => {
+    const handlermChange = (e) => {
+
+        const { name, value } = e.target;
+        setData({...data,[name]: value});
         
-     const { name, value } = e.target;
-     setData({...data,[name]: value});
-         
+
     };
-    
-    
+        
     useEffect(() => {
         console.log(data)
-
+        setSend(data)
     }, [data]);
 
 

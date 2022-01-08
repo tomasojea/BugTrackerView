@@ -45,10 +45,10 @@ function FormPeople(){
                           value:"Insert username"
                        }]
                     
-    const selectParams = [{name:"Role", value:"Developer",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
+    const selectParams = [{name:"Role",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
     
     useEffect(() => {
-       console.log("////From FormPeople////")
+        console.log("////From FormPeople////")
         console.log(send)
         console.log("////From FormPeople////")
     }, [send]);

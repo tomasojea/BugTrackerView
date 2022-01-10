@@ -25,17 +25,25 @@ const useStyles = makeStyles({
     
     const classes = useStyles();
     const menuItems = [
-        {
-            text:"projects",
+        {   
+            text:"Projects",
+            link:"projects",
             icon: <AccountBalanceWalletTwoToneIcon />,
             
         },
         {
             text:"Issues",
+            link:"Issues",
             icon: <AssignmentLateTwoToneIcon />,
         },
         {
-            text:"Charts",
+            text:"Manage Users",
+            link:"createuser",
+            icon: <AssignmentLateTwoToneIcon />,
+        },
+        {
+            text:"Manage Issues",
+            link:"createissue",
             icon: <AssignmentLateTwoToneIcon />,
         }
     ];
@@ -56,7 +64,7 @@ const useStyles = makeStyles({
                         {item.icon}
                     </ListItemIcon>
                     <ListItemText>
-                        <Link  to={"/" + item.text} style={{ textDecoration: 'none' }}><Button>{item.text}</Button></Link>
+                        <Link  to={"/" + item.link} style={{ textDecoration: 'none' }}><Button>{item.text}</Button></Link>
                     </ListItemText>
                 </ListItem>
                 

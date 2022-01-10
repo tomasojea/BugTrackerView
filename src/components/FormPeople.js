@@ -5,6 +5,7 @@ import FormInput from  "../components/FormInput"
 import FormSelect from "../components/FormSelect"
 import Box from '@mui/material/Box';
 import {useEffect, useState} from "react"
+import Button from "@material-ui/core/Button";
 
 
 
@@ -45,7 +46,7 @@ function FormPeople(){
                           value:"Insert username"
                        }]
                     
-    const selectParams = [{name:"Role",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
+    const selectParams = [{name:"person_role",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
     
     useEffect(() => {
         console.log("////From FormPeople////")
@@ -53,12 +54,12 @@ function FormPeople(){
         console.log("////From FormPeople////")
     }, [send]);
                
- /* const handlePOST = () =>{
+  const handlePOST = () =>{
         
-        fetch(url,{
+        fetch("http://localhost:8081/peoples",{
             method:'POST',
             headers:{"Content-Type":"application/hal+json"},
-            body: JSON.stringify(data)
+            body: JSON.stringify(send)
         })
     }
 
@@ -71,14 +72,12 @@ function FormPeople(){
         e.preventDefault()
         handlePOST()
     }
-      */   
+      
     return(
             <FormReusable
                 formdatainput={inputParams} 
                 formdataselect={selectParams} 
-                               
             >
-           
                 <Box   
                     component="form"
                     sx={{
@@ -88,10 +87,12 @@ function FormPeople(){
                         flexDirection: 'column',
                     }}
                     autoComplete="off"
-                    /*onSubmit={handleSubmit}*/
+                    onSubmit={handleSubmit}
                 >           
                     <FormInput setSend={setSend}/> 
                     <FormSelect/>
+                                   <Button size="small" type="submit">Submit</Button>
+
                 </Box>                         
             </FormReusable>
         )

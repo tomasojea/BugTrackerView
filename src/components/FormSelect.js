@@ -14,16 +14,13 @@ function FormSelect(){
     
     const handlerfChange = (e) => {
         console.log("//// From FormSelect ////")
-        console.log(data.value)
+        console.log(data)
         const { name, value } = e.target;
         setData({...data,[name]: value});
         console.log("//// From FormSelect ////")
     };
     
-     useEffect(() => {
-         console.log(select)
-     }, [select.value]);
-
+   
 return(
         <>
                             
@@ -54,4 +51,4 @@ return(
         
 }
 
-export default FormSelect
+export default FormSelect;

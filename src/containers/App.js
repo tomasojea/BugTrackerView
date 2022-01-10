@@ -27,7 +27,7 @@ function App() {
                     
                     <Route  path="/charts" component={GraphGrid}/>
                             
-                    <Route  path="/form" component={FormPeople}/>
+                    <Route  path="/createuser" component={FormPeople}/>
                 </Switch> 
             </div>
         </Router> 

@@ -6,12 +6,17 @@ import FormSelect from "../components/FormSelect"
 import Box from '@mui/material/Box';
 import {useEffect, useState} from "react"
 import Button from "@material-ui/core/Button";
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+
 
 
 
 function FormPeople(){
    
     const [send, setSend] = useState();
+    const [people, setPeople] = useState([]);
      
     const inputParams = [{name: "assigned_project", 
                           label:"Assigned Project", 
@@ -54,7 +59,7 @@ function FormPeople(){
         console.log("////From FormPeople////")
     }, [send]);
                
-  const handlePOST = () =>{
+    const handlePOST = () =>{
         
         fetch("http://localhost:8081/peoples",{
             method:'POST',
@@ -62,11 +67,28 @@ function FormPeople(){
             body: JSON.stringify(send)
         })
     }
-
-        useEffect(() => {
-            handlePOST()
-
-        }, []);
+   /* async function  getUsers() {
+        const response = await fetch("http://localhost:8081/peoples");
+        const data = await response.json();
+        console.log(data._embedded.peoples)
+        setPeople(data._embedded.peoples)
+    }*/
+    
+    const apiGet = () => {
+    fetch("http://localhost:8081/peoples")
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        setPeople(json._embedded.peoples)
+        
+      });
+  };
+    
+    useEffect(() => {
+        apiGet()
+        handlePOST()
+        
+    }, []);
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -91,9 +113,24 @@ function FormPeople(){
                 >           
                     <FormInput setSend={setSend}/> 
                     <FormSelect/>
-                                   <Button size="small" type="submit">Submit</Button>
+                    <Button size="small" type="submit">Submit</Button>
 
-                </Box>                         
+                </Box> 
+                
+                <Box>
+                    <Select
+                        sx={{ minWidth: 130 }}
+                        inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
+                    >
+                        {people.map((item)=>(
+
+                            <MenuItem key={item.person_name} value={item.person_name}>{item.person_name}</MenuItem>
+
+                        ))}
+                    </Select>
+                </Box>
+         
+                
             </FormReusable>
         )
         

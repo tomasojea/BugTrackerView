@@ -36,10 +36,10 @@ return(
                               inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
                               onChange={handlerfChange}
                             >
-                            
-                                <MenuItem key={item.menuItem[0]} value={item.menuItem[0]}>{item.menuItem[0]}</MenuItem>
-                                <MenuItem key={item.menuItem[1]} value={item.menuItem[1]}>{item.menuItem[1]}</MenuItem>
-                                <MenuItem key={item.menuItem[2]} value={item.menuItem[2]}>{item.menuItem[2]}</MenuItem>
+                                {  item.menuItem.map(selected => 
+                                    <MenuItem key={selected} value={selected}>{selected}</MenuItem>
+                                  )} 
+                             
                            
                             </Select>
                         </>

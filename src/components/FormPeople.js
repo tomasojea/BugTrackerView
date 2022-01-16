@@ -59,7 +59,7 @@ function FormPeople(){
         console.log("////From FormPeople////")
     }, [send]);
                
-    const handlePOST = () =>{
+    const apiPOST = () =>{
         
         fetch("http://localhost:8081/peoples",{
             method:'POST',
@@ -84,15 +84,22 @@ function FormPeople(){
       });
   };
     
+    const handleChange = (e) => {
+        
+        const { name, value } = e.target;
+        setSend({...send,[name]: value});
+        
+    }  
+            
     useEffect(() => {
         apiGet()
-        handlePOST()
+        apiPOST()
         
     }, []);
 
     const handleSubmit = e => {
         e.preventDefault()
-        handlePOST()
+        apiPOST()
     }
       
     return(
@@ -121,6 +128,7 @@ function FormPeople(){
                     <Select
                         sx={{ minWidth: 130 }}
                         inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
+                        onChange={handleChange}
                     >
                         {people.map((item)=>(
 

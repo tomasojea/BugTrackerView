@@ -80,9 +80,8 @@ function FormPeople(){
       .then((json) => {
         console.log(json);
         setPeople(json._embedded.peoples)
-        
       });
-  };
+    };
     
     const handleChange = (e) => {
         
@@ -128,6 +127,7 @@ function FormPeople(){
                     <Select
                         sx={{ minWidth: 130 }}
                         inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
+                        name="person_name"
                         onChange={handleChange}
                     >
                         {people.map((item)=>(

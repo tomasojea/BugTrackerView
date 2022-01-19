@@ -20,31 +20,36 @@ function FormSelect(){
         console.log("//// From FormSelect ////")
     };
     
+    useEffect(() => {
+       
+        
+    }, [data]);
    
 return(
         <>
                             
-                    <FormControl sx={{display:'flex',flexDirection: 'row',flexWrap: 'wrap', marginLeft:1 }}>
-                    {select.map((item)=>(
-                        <>
-                            <InputLabel>{item.label}</InputLabel>
-                            <Select
-                              name={item.name}
-                              value={data}
-                              label={item.label}
-                              sx={{ minWidth: 130 }}
-                              inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
-                              onChange={handlerfChange}
-                            >
-                                {  item.menuItem.map(selected => 
-                                    <MenuItem key={selected} value={selected}>{selected}</MenuItem>
-                                  )} 
-                             
-                           
-                            </Select>
-                        </>
-                        ))}
-                    </FormControl>
+                   
+            <FormControl sx={{display:'flex',flexDirection: 'row',flexWrap: 'wrap', marginLeft:1 }}>
+                {select.map((item)=>(
+                    <>
+                        <InputLabel>{item.label}</InputLabel>
+                        <Select
+                          multiple
+                          name={item.name}
+                          value={[]}
+                          label={item.label}
+                          sx={{ minWidth: 130 }}
+                          inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
+                          onChange={handlerfChange}
+                        >
+                            {  item.menuItem.map(selected => 
+                                <MenuItem key={selected} value={selected}>{selected}</MenuItem>
+                            )} 
+
+                        </Select>
+                    </>
+                ))}
+            </FormControl>
                             
         </>
     )

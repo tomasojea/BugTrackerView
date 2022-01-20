@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
 
 
 
@@ -85,7 +86,9 @@ function FormPeople(){
     
     const handleChange = (e) => {
         
-        const { name, value } = e.target;
+        const { name, value,options } = e.target;
+        console.log("//// Form Handle Change ////")
+        console.log(options)
         setSend({...send,[name]: value});
         
     }  
@@ -99,6 +102,7 @@ function FormPeople(){
     const handleSubmit = e => {
         e.preventDefault()
         apiPOST()
+        
     }
       
     return(
@@ -124,18 +128,23 @@ function FormPeople(){
                 </Box> 
                 
                 <Box>
+                <FormControl>
                     <Select
+                        multiple
+                        native
                         sx={{ minWidth: 130 }}
+                        value={[]}
                         inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
                         name="person_name"
                         onChange={handleChange}
                     >
                         {people.map((item)=>(
 
-                            <MenuItem key={item.person_name} value={item.person_name}>{item.person_name}</MenuItem>
+                            <option key={item.person_name} value={item.person_name}>{item.person_name}</option>
 
                         ))}
                     </Select>
+                            </FormControl>
                 </Box>
          
                 

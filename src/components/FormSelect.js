@@ -34,8 +34,7 @@ return(
                     <>
                         <InputLabel>{item.label}</InputLabel>
                         <Select
-                          multiple
-                          name={item.name}
+                          name ={item.name}
                           value={[]}
                           label={item.label}
                           sx={{ minWidth: 130 }}

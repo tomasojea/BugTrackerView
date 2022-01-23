@@ -17,14 +17,9 @@ import FormControl from '@mui/material/FormControl';
 function FormPeople(){
    
     const [send, setSend] = useState();
-    const [people, setPeople] = useState([]);
+    const [project, setProject] = useState([]);
      
-    const inputParams = [{name: "assigned_project", 
-                          label:"Assigned Project", 
-                          defaultValue:"", 
-                          type:"text",
-                          value:"Insert project name"
-                        },{name: "created_on", 
+    const inputParams = [{name: "created_on", 
                           label:"Created On", 
                           defaultValue:"", 
                           type:"date",
@@ -51,7 +46,7 @@ function FormPeople(){
                           type:"text",
                           value:"Insert username"
                        }]
-                    
+                        
     const selectParams = [{name:"person_role",label:"Role", menuItem:["Developer", "Tester", "Manager"]}]
     
     useEffect(() => {
@@ -68,7 +63,7 @@ function FormPeople(){
             body: JSON.stringify(send)
         })
     }
-   /* async function  getUsers() {
+    /* async function  getUsers() {
         const response = await fetch("http://localhost:8081/peoples");
         const data = await response.json();
         console.log(data._embedded.peoples)
@@ -76,19 +71,18 @@ function FormPeople(){
     }*/
     
     const apiGet = () => {
-    fetch("http://localhost:8081/peoples")
+    fetch("http://localhost:8081/projects")
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
-        setPeople(json._embedded.peoples)
+        setProject(json._embedded.projects)
       });
     };
     
     const handleChange = (e) => {
         
-        const { name, value,options } = e.target;
-        console.log("//// Form Handle Change ////")
-        console.log(options)
+        const { name, value } = e.target;
+        console.log()
         setSend({...send,[name]: value});
         
     }  
@@ -102,7 +96,6 @@ function FormPeople(){
     const handleSubmit = e => {
         e.preventDefault()
         apiPOST()
-        
     }
       
     return(
@@ -123,31 +116,29 @@ function FormPeople(){
                 >           
                     <FormInput setSend={setSend}/> 
                     <FormSelect/>
+                    <FormControl sx={{display:'flex',flexDirection: 'row',flexWrap: 'wrap', marginLeft:1, marginTop:2 }}>
+                        <InputLabel>Assigned Project</InputLabel>
+                        <Select
+                            sx={{ minWidth: 130 }}
+                            value={[]}
+                            inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
+                            name="assigned_project"
+                            onChange={handleChange}
+                            sx={{ minWidth: 130 }}
+                            inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
+                        >
+                            {project.map((item)=>(
+
+                               <MenuItem key={item.project_id} value={item.project_id}>{item.project_name}</MenuItem>
+
+                            ))}
+                        </Select>
+                     </FormControl>
                     <Button size="small" type="submit">Submit</Button>
 
                 </Box> 
                 
-                <Box>
-                <FormControl>
-                    <Select
-                        multiple
-                        native
-                        sx={{ minWidth: 130 }}
-                        value={[]}
-                        inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
-                        name="person_name"
-                        onChange={handleChange}
-                    >
-                        {people.map((item)=>(
-
-                            <option key={item.person_name} value={item.person_name}>{item.person_name}</option>
-
-                        ))}
-                    </Select>
-                            </FormControl>
-                </Box>
-         
-                
+                                   
             </FormReusable>
         )
         

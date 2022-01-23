@@ -37,7 +37,6 @@ return(
                        name={item.name}
                        value={data.value}
                        required
-                       id="outlined-required"
                        type={item.type}
                        label={item.label}
                        defaultValue={item.defaultValue}

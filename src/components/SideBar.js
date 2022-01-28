@@ -45,6 +45,11 @@ const useStyles = makeStyles({
             text:"Manage Issues",
             link:"createissue",
             icon: <AssignmentLateTwoToneIcon />,
+        },
+        {
+            text:"Users",
+            link:"users",
+            icon: <AssignmentLateTwoToneIcon />,
         }
     ];
     

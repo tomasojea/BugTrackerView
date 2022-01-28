@@ -122,9 +122,11 @@ function FormPeople(){
                             sx={{ minWidth: 130 }}
                             value={[]}
                             inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
+                            defaultValue=""
                             name="assigned_project"
+                            label="assigned_project"
                             onChange={handleChange}
-                            sx={{ minWidth: 130 }}
+                            sx={{ minWidth: 170 }}
                             inputProps={{style: {fontSize: 13, color:"#cccccc"}}}
                         >
                             {project.map((item)=>(

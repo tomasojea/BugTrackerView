@@ -1,5 +1,6 @@
 import SideBar from "../components/SideBar"
 import Issue from "../components/Issue.js"
+import User from "../components/User.js"
 import Form from "../components/Form.js"
 import GraphGrid from "../components/GraphGrid"
 import TableData from "../components/TableData.js"
@@ -24,6 +25,8 @@ function App() {
                     <Route exact  path="/projects" component={ProjectTable}/>
                         
                     <Route exact path="/projects/issues"  component={Issue}/>
+                    
+                    <Route exact path="/users"  component={User}/>
                     
                     <Route  path="/charts" component={GraphGrid}/>
                             

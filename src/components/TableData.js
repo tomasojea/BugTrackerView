@@ -22,7 +22,7 @@ function TableData(){
       console.log("executed only once!");
       apiGet();
       console.log("data only once!");
-      console.log();
+      
     }, [""]);
    
   

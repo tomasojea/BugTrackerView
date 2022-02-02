@@ -5,10 +5,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { useEffect, useState } from "react";
+import {Link, Route,Switch, useLocation} from "react-router-dom"
 
 function User() {
     
     const [data, setData] = useState([])
+    const location = useLocation()
+    const fromDashboard = location.state
     
     async function apiGet() {
         const response = await fetch('http://localhost:8081/peoples');
@@ -16,10 +19,25 @@ function User() {
         setData(data1._embedded.peoples);
     }
     
+    async function removeItem() {
+        try {
+             await fetch(fromDashboard.peoples, {
+                method: "DELETE",
+            });
+        } catch (err) {
+        }
+    }
+
+    
+
+    
        
     useEffect(() => {
       console.log("executed only once!");
+      console.log(fromDashboard);
       apiGet();
+      removeItem();
+      console.log(fromDashboard.peoples);
       console.log("data only once!");
       
     }, [""]);
@@ -31,18 +49,15 @@ function User() {
                 <Table>
                     <TableHead>
                         <TableRow>
+                            <TableCell>Name</TableCell>
+                            <TableCell>Email</TableCell>
+                            <TableCell>Role</TableCell>
+                            <TableCell>Username</TableCell>
                             <TableCell>Assigned Project</TableCell>
-                            <TableCell>Issue Description</TableCell>
-                            <TableCell>Identified Description</TableCell>
-                            <TableCell>Identified Date</TableCell>
-                            <TableCell>Status</TableCell>
-                            <TableCell>Priority</TableCell>
-                            <TableCell>Target Resolution Date</TableCell>
-                            <TableCell>Progress</TableCell>
-                            <TableCell>Actual Resolution Date</TableCell>
-                            <TableCell>Resolution Summary</TableCell>
-                            <TableCell>Created on</TableCell>
+                            <TableCell>Created On</TableCell>
                             <TableCell>Created By</TableCell>
+                            <TableCell>Modified On</TableCell>
+                            <TableCell>Modified By Resolution Date</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -58,8 +73,8 @@ function User() {
                                         <TableCell>{item.created_by}</TableCell>
                                         <TableCell>{item.modified_on}</TableCell>
                                         <TableCell>{item.modified_by}</TableCell>
-                                        <TableCell>{item.created_on}</TableCell>
-                                        <TableCell>{item.created_by}</TableCell>
+                                        <TableCell ><Link  to={{state: {peoples: item._links.self.href}}} onClick={removeItem}>Delete</Link></TableCell>
+                                       
                                     </TableRow>
                                             
                                     ))

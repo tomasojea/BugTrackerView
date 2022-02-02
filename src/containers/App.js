@@ -3,7 +3,7 @@ import Issue from "../components/Issue.js"
 import User from "../components/User.js"
 import Form from "../components/Form.js"
 import GraphGrid from "../components/GraphGrid"
-import TableData from "../components/TableData.js"
+import IssuesData from "../components/IssuesData.js"
 import ProjectTable from "../components/ProjectTable.js"
 import FormPeople from "../components/FormPeople"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
@@ -20,7 +20,7 @@ function App() {
                 <Switch> 
                     <Route exact path="/" component={GraphGrid}/>
                        
-                    <Route exact  path="/issues" component={TableData}/>
+                    <Route exact  path="/issues" component={IssuesData}/>
                      
                     <Route exact  path="/projects" component={ProjectTable}/>
                         

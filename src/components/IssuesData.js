@@ -7,7 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import { useEffect, useState } from "react";
 
  
-function TableData(){
+function IssuesData(){
     
     const [data, setData] = useState([])
     
@@ -75,4 +75,4 @@ function TableData(){
     )
 }
 
-export default TableData;
+export default IssuesData;

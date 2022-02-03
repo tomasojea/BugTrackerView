@@ -26,18 +26,18 @@ function User() {
             });
         } catch (err) {
         }
+        apiGet();
     }
 
     
-
-    
+   
        
     useEffect(() => {
       console.log("executed only once!");
       console.log(fromDashboard);
       apiGet();
       removeItem();
-      console.log(fromDashboard.peoples);
+      
       console.log("data only once!");
       
     }, [""]);
